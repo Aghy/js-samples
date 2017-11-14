@@ -1,6 +1,9 @@
 $('document').ready(function () {
-    $('#submit').on('click', function () {
-        alert('is it working');
+    $.get('notes.json').done(function(response){
+        var notes = response.notes;
+        for (var noteIndex in notes) {
+            var listItem = "<li>" + notes[noteIndex].content + "</li>";
+            $('#list').append(listItem);
+        }
     });
 });
-
