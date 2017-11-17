@@ -32,4 +32,5 @@ function submitNote() {
     var textBoxContent = $('#textBox').val();
     sendNote(textBoxContent);
     $('#textBox').val('');
+    location.reload(); //TODO change this ugly stuff
 }
