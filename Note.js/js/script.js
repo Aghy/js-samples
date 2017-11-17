@@ -1,8 +1,13 @@
 $('document').ready(function () {
 
     $('#submit').on("click", function () {
-        var textBoxContent = $('#textBox').val();
-        sendNote(textBoxContent);
+        submitNote();
+    });
+
+    $('#textBox').keyup( function (e) {
+        if (e.which == 13) {        // on release of the return key
+            submitNote();
+        }
     });
 
     $.get('http://notee.de/spaces/test/index.php').done(
@@ -21,4 +26,10 @@ $('document').ready(function () {
 
 function sendNote(note) {
     $.post('http://notee.de/spaces/test/index.php',{content: note} );
+}
+
+function submitNote() {
+    var textBoxContent = $('#textBox').val();
+    sendNote(textBoxContent);
+    $('#textBox').val('');
 }
