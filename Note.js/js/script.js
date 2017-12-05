@@ -1,18 +1,12 @@
 $('document').ready(function () {
 
     $('#submit').on("click", function () {
-        submitNote();
+        appendNote();
     });
 
-    $('#textBox').keyup( function (e) {
+    $('#textBox').keyup( function (e)  {
         if (e.which == 13) {        // on release of the return key
-
-            var typedNote = $('#textBox').val();
-            if ( typedNote == "") {
-                alert('note is empty!');
-            } else {
-                submitNote(typedNote);
-            }
+            appendNote();
         }
     });
 
@@ -26,16 +20,23 @@ $('document').ready(function () {
         }
     );
 
-
-
 });
 
-function sendNote(note) {
-    $.post('http://notee.de/spaces/test/index.php',{content: note} );
+function appendNote(){
+    var typedNote = $('#textBox').val();
+    if ( typedNote == "") {
+        alert('note is empty!');
+    } else {
+        submitNote(typedNote);
+    }
 }
 
 function submitNote(typedNote) {
     sendNote(typedNote);
     $('#textBox').val('');
     location.reload(); //TODO change this ugly stuff
+}
+
+function sendNote(note) {
+    $.post('http://notee.de/spaces/test/index.php',{content: note} );
 }
