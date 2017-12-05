@@ -15,7 +15,7 @@ $('document').ready(function () {
             var items = JSON.parse(fileContent);
             for (var index in items.notes) {
 
-                $('#list').append('<li>' +  items.notes[index].content + '</li>');
+                $('#list').append('<li  class="list-group-item">' +  items.notes[index].content + '</li>');
             }
         }
     );
