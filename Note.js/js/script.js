@@ -15,7 +15,7 @@ $('document').ready(function () {
             var items = JSON.parse(fileContent);
             for (var index in items.notes) {
 
-                $('#list').append('<li  class="list-group-item">' +  items.notes[index].content + '</li>');
+                $('#list').append('<li  class="list-group-item" style="background-color: ' + items.notes[index].color + '">' +  items.notes[index].content + '</li>');
             }
         }
     );
@@ -27,16 +27,22 @@ function appendNote(){
     if ( typedNote == "") {
         alert('note is empty!');
     } else {
-        submitNote(typedNote);
+        var checkedColors = $(':checked');
+        var noteColor = checkedColors[0].id;
+        var payload = {
+            content: typedNote,
+            color: noteColor
+        };
+        submitNote(payload);
     }
 }
 
-function submitNote(typedNote) {
-    sendNote(typedNote);
+function submitNote(payload) {
+    sendNote(payload);
     $('#textBox').val('');
-    location.reload(); //TODO change this ugly stuff
+   location.reload(); //TODO change this ugly stuff
 }
 
-function sendNote(note) {
-    $.post('http://notee.de/spaces/test/index.php',{content: note} );
+function sendNote(payload) {
+    $.post('http://notee.de/spaces/test/index.php',payload );
 }

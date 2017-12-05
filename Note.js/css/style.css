@@ -1,0 +1,25 @@
+#colorButtons li{
+    display: inline;
+}
+#colorButtons li label{
+    width: 10%;
+}
+#greyLi {
+    background-color: #a5a1a1;
+}
+
+#redLi {
+    background-color: #d06464;
+}
+
+#blueLi {
+    background-color: #5f70ce;
+}
+
+#greenLi {
+    background-color: #77b979;
+}
+
+#yellowLi {
+    background-color: #e6cb7a;
+}
