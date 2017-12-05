@@ -6,7 +6,13 @@ $('document').ready(function () {
 
     $('#textBox').keyup( function (e) {
         if (e.which == 13) {        // on release of the return key
-            submitNote();
+
+            var typedNote = $('#textBox').val();
+            if ( typedNote == "") {
+                alert('note is empty!');
+            } else {
+                submitNote(typedNote);
+            }
         }
     });
 
@@ -28,9 +34,8 @@ function sendNote(note) {
     $.post('http://notee.de/spaces/test/index.php',{content: note} );
 }
 
-function submitNote() {
-    var textBoxContent = $('#textBox').val();
-    sendNote(textBoxContent);
+function submitNote(typedNote) {
+    sendNote(typedNote);
     $('#textBox').val('');
     location.reload(); //TODO change this ugly stuff
 }
