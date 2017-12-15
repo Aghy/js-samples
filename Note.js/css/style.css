@@ -1,25 +1,67 @@
-#colorButtons li{
-    display: inline;
+#colorButtons, #colorButtons table{
+    height: 100%;
+    width: 100%;
 }
-#colorButtons li label{
-    width: 10%;
+
+#colorButtons table tr {
+    width: 100%;
 }
-#greyLi {
+
+#colorButtons table td {
+    width: 33%;
+}
+
+#colorOne {
     background-color: #a5a1a1;
 }
 
-#redLi {
+#colorTwo {
     background-color: #d06464;
 }
 
-#blueLi {
+#colorFour {
     background-color: #5f70ce;
 }
 
-#greenLi {
-    background-color: #77b979;
+#colorThree {
+    background-color: #e6cb7a;
+}
+body{
+    background-color: #3f3d3d;
+}
+#container {
+    padding: 30px 60px;
+    width: 70%;
+    margin: 0 auto;
+    background-color: #3f3d3d;
 }
 
-#yellowLi {
-    background-color: #e6cb7a;
+#textBox {
+    width: 100%;
+}
+
+#topper {
+    display: flex;
+}
+
+#buttonBoard {
+    width: 50%;
+}
+
+#paragraphContainer {
+    width: 50%;
+}
+
+#paragraph {
+    resize: none;
+    width: 100%;
+}
+
+label:checked {
+    border: solid 5px white;
+}
+
+#buttonBoard button {
+    width: 100% ;
+    height: 100% ;
 }
