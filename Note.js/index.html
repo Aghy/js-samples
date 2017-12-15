@@ -12,32 +12,43 @@
 </head>
 <body>
 <div id="container">
-    <div id="form">
-        <input  id="textBox" type="text" autofocus>
-        <button id="submit">Add</button>
-        <div id="colorButtons">
-            <ul>
-                <li id="greyLi">
-                    <input name="feedback" id="grey" type="radio">
-                    <label for="grey" class>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                </li>
-                <li id="redLi">
-                    <input name="feedback" id="red" type="radio">
-                    <label for="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                </li>
-                <li id="yellowLi">
-                    <input name="feedback" id="yellow" type="radio">
-                    <label for="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                </li>
-                <li id="blueLi">
-                    <input name="feedback" id="blue" type="radio">
-                    <label for="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                </li>
-                <li id="greenLi">
-                    <input name="feedback" id="green" type="radio">
-                    <label for="green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                </li>
-            </ul>
+    <div id="toolBox">
+        <div id="headerImg">
+            <img src="imgs/header.png" alt="">
+        </div>
+        <div id="textBoxContainer">
+            <input  id="textBox" type="text" autofocus>
+        </div>
+        <div id="topper">
+            <div id="buttonBoard">
+                <div id="colorButtons">
+                    <table>
+                        <tr>
+                            <td id="colorOne"  class="colorButtons">
+                            </td>
+                            <td id="colorTwo"  class="colorButtons">
+                            </td>
+                            <td>
+                                <button id="submit">Add</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="colorThree" class="colorButtons">
+                            </td>
+                            <td id="colorFour"  class="colorButtons">
+                            </td>
+                            <td>
+                                <button id="browseButton">Attach</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            <div id="paragraphContainer">
+                <textarea name="" id="paragraph"
+                  cols="30" rows="10"></textarea>
+            </div>
         </div>
     </div>
     <div id="content">
