@@ -15,7 +15,8 @@ $('document').ready(function () {
 
     $('#textBox').keyup( function (e)  {
         if (e.which == 13) {        // on release of the return key
-            appendNote();
+            var typedNote = getNoteContent();
+            appendNote(typedNote, noteColor);
         }
     });
 
@@ -23,13 +24,17 @@ $('document').ready(function () {
         function (fileContent) {
             var jsonContent = JSON.parse(fileContent);
             for (var index in jsonContent.notes) {
-
-                $('#list').append('<li  class="list-group-item" style="background-color: ' + convertColorIdToHexa(jsonContent.notes[index].style.backgroundColor) + '">' +  jsonContent.notes[index].content + '</li>');
+                var currentNote = jsonContent.notes[index];
+                prependNoteToList(currentNote);
             }
         }
     );
 
 });
+
+function prependNoteToList(note) {
+    $('#list').prepend('<li  class="list-group-item" style="background-color: ' + convertColorIdToHexa(note.style.backgroundColor) + '">' +  note.content + '</li>');
+}
 
 function getNoteContent() {
  var textAreaContent = $('textarea').val();
@@ -51,6 +56,7 @@ function appendNote(typedNote, noteColor){
             }
         };
         submitNote(payload);
+        insertNoteToDOM(payload);
     }
 }
 
@@ -58,7 +64,7 @@ function submitNote(payload) {
     makePostAction(payload);
     $('#textBox').val('');
     $('#paragraph').val('');
-   location.reload(); //TODO change this ugly stuff
+   //location.reload(); //TODO change this ugly stuff
 }
 
 function makePostAction(payload) {
@@ -78,4 +84,8 @@ function convertColorIdToHexa(colorId){
         default :
             return 'none' ;
     }
+}
+
+function insertNoteToDOM(payload) {
+    prependNoteToList(payload);
 }
