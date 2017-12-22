@@ -24,7 +24,7 @@ $('document').ready(function () {
             var jsonContent = JSON.parse(fileContent);
             for (var index in jsonContent.notes) {
 
-                $('#list').append('<li  class="list-group-item" style="background-color: ' + convertColorIdToHexa(jsonContent.notes[index].color) + '">' +  jsonContent.notes[index].content + '</li>');
+                $('#list').append('<li  class="list-group-item" style="background-color: ' + convertColorIdToHexa(jsonContent.notes[index].style.backgroundColor) + '">' +  jsonContent.notes[index].content + '</li>');
             }
         }
     );
@@ -46,7 +46,9 @@ function appendNote(typedNote, noteColor){
     } else {
         var payload = {
             content: typedNote,
-            color: noteColor
+            style :{
+                backgroundColor: noteColor
+            }
         };
         submitNote(payload);
     }
