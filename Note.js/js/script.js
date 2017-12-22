@@ -3,8 +3,8 @@ $('document').ready(function () {
 
     $('.colorButtons').on("click", function(){
         noteColor =  this.id;
-        $('.colorButtons').css('border','none');
-        $(this).css('border','solid 5px white');
+        $('#checkedGlyph').remove();
+        $(this).append("<img id='checkedGlyph' src='./imgs/si-glyph-checked.svg'>");
     });
 
 
