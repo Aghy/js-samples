@@ -46,7 +46,8 @@ return textAreaContent;
 }
 
 function appendNote(typedNote, noteColor){
-    if ( typedNote == "") {
+    var hasLetters = containLetters(typedNote);
+    if ( typedNote == "" || hasLetters === false ) {
         alert('note is empty!');
     } else {
         var payload = {
@@ -59,6 +60,16 @@ function appendNote(typedNote, noteColor){
         insertNoteToDOM(payload);
     }
 }
+
+function containLetters(noteContent) {
+    var trimmedNote = noteContent.trim();
+    if (  trimmedNote === "" ) {
+      return false;
+    }
+
+    return true;
+}
+
 
 function submitNote(payload) {
     makePostAction(payload);
