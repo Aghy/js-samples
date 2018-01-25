@@ -70,3 +70,7 @@ label:checked {
     height: 50px;
     position: absolute;
 }
+
+#headerImg img {
+    width: 100% ;
+}
